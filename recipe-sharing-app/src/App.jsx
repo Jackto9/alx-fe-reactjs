@@ -5,6 +5,8 @@ import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
 import EditRecipeForm from './components/EditRecipeForm';
 import SearchBar from './components/SearchBar';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 
 const App = () => {
   return (
@@ -12,6 +14,8 @@ const App = () => {
       <div>
         <h1>Recipe Sharing App</h1>
         <SearchBar />
+        <FavoritesList />
+        <RecommendationsList />
         <Routes>
           <Route path="/" element={<><AddRecipeForm /><RecipeList /></>} />
           <Route path="/recipe/:id" element={<RecipeDetails />} />

@@ -6,7 +6,7 @@ const RecommendationsList = () => {
 
   useEffect(() => {
     generateRecommendations();
-  }, [generateRecommendations]);
+  }, []);
 
   return (
     <div>
@@ -19,11 +19,10 @@ const RecommendationsList = () => {
           </div>
         ))
       ) : (
-        <p>No recommendations yet.</p>
+        <p>No recommendations available.</p>
       )}
     </div>
   );
 };
 
 export default RecommendationsList;
- 
