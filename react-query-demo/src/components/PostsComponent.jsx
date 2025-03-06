@@ -9,7 +9,17 @@ const fetchPosts = async () => {
 };
 
 const PostsComponent = () => {
-  const { data, error, isLoading, isError } = useQuery('posts', fetchPosts);
+  const {
+    data,
+    error,
+    isLoading,
+    isError,
+  } = useQuery('posts', fetchPosts, {
+    cacheTime: 5 * 60 * 1000, // Cache data for 5 minutes
+    staleTime: 60 * 1000, // Data stays fresh for 1 minute
+    refetchOnWindowFocus: false, // Prevent refetching when window regains focus
+    keepPreviousData: true, // Maintain previous data while fetching new data
+  });
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error: {error.message}</p>;
