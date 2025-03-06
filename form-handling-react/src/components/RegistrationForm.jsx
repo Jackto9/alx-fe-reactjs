@@ -4,10 +4,22 @@ const RegistrationForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});  // ✅ Track validation errors
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ username, email, password });
+
+    let newErrors = {}; // Object to store validation errors
+
+    if (!username) newErrors.username = "Username is required";  // ✅ if (!username)
+    if (!email) newErrors.email = "Email is required";           // ✅ if (!email)
+    if (!password) newErrors.password = "Password is required";  // ✅ if (!password)
+
+    setErrors(newErrors);  // ✅ Update error state
+
+    if (Object.keys(newErrors).length === 0) {
+      console.log({ username, email, password });
+    }
   };
 
   return (
@@ -16,9 +28,10 @@ const RegistrationForm = () => {
         Username:
         <input
           type="text"
-          value={username}  // ✅ Make sure this is present
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
+        {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
       </label>
       <br />
 
@@ -26,9 +39,10 @@ const RegistrationForm = () => {
         Email:
         <input
           type="email"
-          value={email}  // ✅ Make sure this is present
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
       </label>
       <br />
 
@@ -36,9 +50,10 @@ const RegistrationForm = () => {
         Password:
         <input
           type="password"
-          value={password}  // ✅ Make sure this is present
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
       </label>
       <br />
 
