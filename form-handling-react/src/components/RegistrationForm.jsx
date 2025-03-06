@@ -1,60 +1,47 @@
 import { useState } from "react";
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.username || !formData.email || !formData.password) {
-      alert("All fields are required!");
-      return;
-    }
-    console.log("Form Submitted:", formData);
+    console.log({ username, email, password });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>Username:</label>
+      <label>
+        Username:
         <input
           type="text"
-          name="username"
-          value={formData.username} // ✅ Controlled component
-          onChange={handleChange}
-          required
+          value={username}  // ✅ Make sure this is present
+          onChange={(e) => setUsername(e.target.value)}
         />
-      </div>
-      <div>
-        <label>Email:</label>
+      </label>
+      <br />
+
+      <label>
+        Email:
         <input
           type="email"
-          name="email"
-          value={formData.email} // ✅ Controlled component
-          onChange={handleChange}
-          required
+          value={email}  // ✅ Make sure this is present
+          onChange={(e) => setEmail(e.target.value)}
         />
-      </div>
-      <div>
-        <label>Password:</label>
+      </label>
+      <br />
+
+      <label>
+        Password:
         <input
           type="password"
-          name="password"
-          value={formData.password} // ✅ Controlled component
-          onChange={handleChange}
-          required
+          value={password}  // ✅ Make sure this is present
+          onChange={(e) => setPassword(e.target.value)}
         />
-      </div>
+      </label>
+      <br />
+
       <button type="submit">Register</button>
     </form>
   );
