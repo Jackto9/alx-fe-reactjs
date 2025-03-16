@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 
 const UserProfile = () => {
   return (
-    <div className="flex flex-col items-center bg-gray-100 rounded-lg shadow-lg p-4 sm:p-8 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
-      <img
-        src="https://via.placeholder.com/150"
-        alt="User Profile"
-        className="rounded-full w-24 h-24 sm:w-36 sm:h-36 object-cover"
-      />
-      <h2 className="mt-4 text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">
-        John Doe
-      </h2>
-      <p className="text-sm sm:text-base text-gray-600 text-center">
-        Frontend Developer | React Enthusiast | Tailwind CSS Lover
-      </p>
-      <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300">
-        Follow
-      </button>
+    <div className="p-4 sm:p-4 md:p-8 max-w-xs md:max-w-sm mx-auto bg-white shadow-md rounded-lg">
+      {/* Profile Image */}
+      <div className="flex flex-col items-center">
+        <img
+          src="https://via.placeholder.com/150"
+          alt="User Profile"
+          className="w-24 h-24 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full border-2 border-gray-300"
+        />
+        <h2 className="mt-4 text-lg sm:text-lg md:text-xl font-semibold text-gray-900">
+          John Doe
+        </h2>
+        <p className="text-sm sm:text-sm md:text-base text-gray-600">
+          Software Engineer
+        </p>
+      </div>
     </div>
   );
 };
