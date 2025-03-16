@@ -1,19 +1,24 @@
-import React from "react";
+import React from 'react';
 
-function UserProfile() {
+const UserProfile = () => {
   return (
-    <div className="bg-gray-100 p-8 max-w-sm mx-auto my-20 rounded-lg shadow-lg text-center">
+    <div className="flex flex-col items-center bg-gray-100 rounded-lg shadow-lg p-4 sm:p-8 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
       <img
         src="https://via.placeholder.com/150"
-        alt="User"
-        className="w-36 h-36 rounded-full mx-auto"
+        alt="User Profile"
+        className="rounded-full w-24 h-24 sm:w-36 sm:h-36 object-cover"
       />
-      <h1 className="text-xl text-blue-800 my-4">John Doe</h1>
-      <p className="text-gray-600 text-base">
-        Developer at Example Co. Loves to write code and explore new technologies.
+      <h2 className="mt-4 text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">
+        John Doe
+      </h2>
+      <p className="text-sm sm:text-base text-gray-600 text-center">
+        Frontend Developer | React Enthusiast | Tailwind CSS Lover
       </p>
+      <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300">
+        Follow
+      </button>
     </div>
   );
-}
+};
 
 export default UserProfile;
